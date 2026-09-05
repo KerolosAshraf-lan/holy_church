@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة مخازن هولي تيمبو</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="home-container">
+        <section class="card">
+
+            <div class="logo-wrapper">
+                <img src="logo.jpeg" alt="HOLY TEMPO Logo">
+            </div>
+
+            <h1 class="project-title">إدارة مخازن هولي تيمبو</h1>
+            <p class="subtitle">اختر طريقة الدخول للمتابعة</p>
+
+            <div class="actions-group">
+                <button class="btn btn-servant" onclick="navigateTo('servant')">
+                    <span class="icon">👤</span>
+                    دخول خادم
+                </button>
+
+                <button class="btn btn-admin" onclick="navigateTo('admin')">
+                    <span class="icon">🔒</span>
+                    دخول أمين المخازن
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- الربط بالسكربتات الخاصة بالتطبيق -->
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

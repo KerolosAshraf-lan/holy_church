@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المخزن - مخزن الكنيسة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="inventory-container">
+
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">➡️ لوحة التحكم</button>
+            <h2>📦 إدارة الأصناف بالمخزن</h2>
+            <button class="btn btn-admin" style="width: auto; padding: 8px 16px;" onclick="openAddModal()">➕ إضافة
+                صنف</button>
+        </header>
+
+        <div class="table-card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>اسم الصنف</th>
+                        <th>الكمية المتاحة</th>
+                        <th>الحالة</th>
+                        <th>ملاحظات</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTableBody">
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- النافذة المنبثقة مخفية افتراضيًا بـ hidden -->
+    <div id="itemModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modalTitle">إضافة صنف جديد</h3>
+            <form id="itemForm">
+                <input type="hidden" id="editItemId">
+
+                <div class="form-group">
+                    <label for="itemName">اسم الصنف *</label>
+                    <input type="text" id="itemName" required placeholder="مثال: ميكروفون لاسلكي">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemQty">الكمية *</label>
+                    <input type="number" id="itemQty" min="0" required placeholder="أدخل الكمية المتاحة">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemNotes">ملاحظات (اختياري)</label>
+                    <input type="text" id="itemNotes" placeholder="أي تفاصيل أو ملاحظات خفيفة">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-admin">حفظ</button>
+                    <button type="button" class="btn btn-servant" style="background:#64748b;"
+                        onclick="closeModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- استدعاء السكربت الخاص بصفحة المخزن -->
+    <script src="inventory.js"></script>
+</body>
+
+</html>

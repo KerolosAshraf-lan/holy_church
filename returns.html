@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متابعة المرتجعات والعهد - مخزن الكنيسة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="inventory-container">
+
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">➡️ لوحة التحكم</button>
+            <h2>↩️ متابعة العُهد والمرتجعات</h2>
+        </header>
+
+        <!-- جدول متابعة العهد المفتوحة والمسترجعة -->
+        <div class="table-card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>رقم الطلب</th>
+                        <th>اسم الخادم</th>
+                        <th>الأصناف والكميات</th>
+                        <th>تاريخ الصرف</th>
+                        <th>الحالة</th>
+                        <th>إجراءات الإرجاع</th>
+                    </tr>
+                </thead>
+                <tbody id="returnsTableBody">
+                    <!-- يتم التحميل ديناميكياً -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- ربط سكربت المرتجعات -->
+    <script src="returns.js"></script>
+</body>
+
+</html>

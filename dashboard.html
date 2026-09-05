@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - مخزن الكنيسة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="dashboard-container">
+
+        <!-- الهيدر الرئيسي -->
+        <header class="dashboard-header">
+            <div class="user-info">
+                <h2>مرحباً بك، <span id="welcomeUserName">الأدمن</span></h2>
+                <span id="roleBadge" class="status-tag tag-warning">--</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="btn-profile" onclick="openProfileModal()">⚙️ تعديل حسابي</button>
+                <button class="btn-logout" onclick="logout()">🚪 تسجيل الخروج</button>
+            </div>
+        </header>
+
+        <!-- كروت لوحة التحكم -->
+        <div class="dash-grid">
+
+            <div class="dash-card" onclick="window.location.href='inventory.html'">
+                <div class="card-icon">📦</div>
+                <div class="card-text">
+                    <h3>المخزن</h3>
+                    <p>إدارة الأصناف والكميات</p>
+                </div>
+            </div>
+
+            <!-- كارت الطلبات المضاف له شارة الإشعار -->
+            <div class="dash-card" onclick="window.location.href='orders.html'" style="position: relative;">
+                <div class="card-icon">📝</div>
+                <div class="card-text">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <h3>الطلبات</h3>
+                        <span id="pendingBadge" class="status-tag tag-danger hidden"
+                            style="border-radius: 50px; padding: 2px 8px; font-size: 0.8rem;">0</span>
+                    </div>
+                    <p>مراجعة وقبول/رفض طلبات الخدام</p>
+                </div>
+            </div>
+
+            <div class="dash-card" onclick="window.location.href='returns.html'">
+                <div class="card-icon">↩️</div>
+                <div class="card-text">
+                    <h3>المرتجعات</h3>
+                    <p>متابعة العهد والأصناف الخارجية</p>
+                </div>
+            </div>
+
+            <div class="dash-card" onclick="window.location.href='damaged.html'">
+                <div class="card-icon">🔧</div>
+                <div class="card-text">
+                    <h3>التالف</h3>
+                    <p>إدارة الأصناف التالفة والصيانة</p>
+                </div>
+            </div>
+
+            <div id="usersCard" class="dash-card" onclick="window.location.href='users.html'">
+                <div class="card-icon">👤</div>
+                <div class="card-text">
+                    <h3>المستخدمين</h3>
+                    <p>إدارة حسابات الأدمن والصلاحيات</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- نافذة تعديل بيانات الحساب الشخصي -->
+    <div id="profileModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>⚙️ تعديل بيانات الحساب</h3>
+            <form id="profileForm">
+
+                <div class="form-group">
+                    <label for="profileName">الاسم الحالي *</label>
+                    <input type="text" id="profileName" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileUsername">اسم المستخدم (للتسجيل) *</label>
+                    <input type="text" id="profileUsername" required class="form-control" readonly
+                        style="background-color: #e2e8f0; cursor: not-allowed;">
+                </div>
+
+                <div class="form-group">
+                    <label for="profilePassword">كلمة المرور الجديدة *</label>
+                    <input type="password" id="profilePassword" required class="form-control">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-admin">حفظ التغيرات</button>
+                    <button type="button" class="btn btn-servant" style="background:#64748b;"
+                        onclick="closeProfileModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- السكربت الخاص بـ dashboard -->
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المستخدمين - مخزن الكنيسة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="inventory-container">
+
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">➡️ لوحة التحكم</button>
+            <h2>👤 إدارة المستخدمين والصلاحيات</h2>
+            <button class="btn btn-admin" style="width: auto; padding: 8px 16px;" onclick="openUserModal()">➕ إضافة
+                مستخدم</button>
+        </header>
+
+        <div class="table-card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>اسم المستخدم</th>
+                        <th>اسم الدخول</th>
+                        <th>نوع الحساب</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <!-- سيتم العرض عبر JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- نافذة إضافة / تعديل مستخدم -->
+    <div id="userModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="userModalTitle">إضافة مستخدم جديد</h3>
+            <form id="userForm">
+                <input type="hidden" id="editUserId">
+
+                <div class="form-group">
+                    <label for="fullName">الاسم بالكامل *</label>
+                    <input type="text" id="fullName" required placeholder="مثال: دانيال وجيه">
+                </div>
+
+                <div class="form-group">
+                    <label for="usernameInput">اسم المستخدم (للتسجيل) *</label>
+                    <input type="text" id="usernameInput" required placeholder="مثال: daniel123">
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordInput">كلمة المرور *</label>
+                    <input type="password" id="passwordInput" required placeholder="أدخل كلمة المرور">
+                </div>
+
+                <div class="form-group">
+                    <label for="userRole">الصلاحية *</label>
+                    <select id="userRole" required class="form-control"
+                        style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color);">
+                        <option value="admin">أمين مخزن (Admin)</option>
+                        <option value="super">Super Admin</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-admin">حفظ البيانات</button>
+                    <button type="button" class="btn btn-servant" style="background:#64748b;"
+                        onclick="closeUserModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ملف الاتصال بالنظام العام و السكربت الخاص بهذه الصفحة -->
+    <script src="supabase-client.js"></script>
+    <script src="users.js"></script>
+</body>
+
+</html>
